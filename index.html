@@ -2,14 +2,18 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
-  <script>
-    function openForm() {
-      Office.context.ui.openBrowserWindow(
-        "https://forms.office.com/r/kpN7q5v42c"
-      );
-    }
-  </script>
+ 
+<script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+<script>
+Office.onReady(() => {
+  Office.actions.associate("openForm", openForm);
+});
+
+function openForm() {
+  window.open("https://your-form-url", "_blank");
+}
+</script>
+
 </head>
 <body></body>
 </html>
