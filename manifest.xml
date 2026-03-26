@@ -9,13 +9,29 @@
   <!-- Basic Settings -->
   <Id>1cc6f490-34ad-4931-ac57-8a4a685fdd63</Id>
   <Version>1.0.0.0</Version>
-  <ProviderName>Your Organization Name</ProviderName>
+  <ProviderName>Maritime Paintball</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="Form Button"/>
-  <Description DefaultValue="Opens Microsoft Form"/>
+  <DisplayName DefaultValue="IT Support Form"/>
+  <Description DefaultValue="Opens IT Support submission form"/>
   <IconUrl DefaultValue="https://maritimepaintball.github.io/Submit-IT-Support-Outlook/Icon-32.png"/>
   <HighResolutionIconUrl DefaultValue="https://maritimepaintball.github.io/Submit-IT-Support-Outlook/Icon-64.png"/>
-  <SupportUrl DefaultValue="https://maritimepaintball.github.io/support.html"/>
+  <SupportUrl DefaultValue="https://maritimepaintball.github.io/Submit-IT-Support-Outlook/"/>
+  
+  <!-- CRITICAL: AppDomains whitelist -->
+  <AppDomains>
+    <AppDomain>https://maritimepaintball.github.io</AppDomain>
+    <AppDomain>https://forms.office.com</AppDomain>
+  </AppDomains>
+  
+  <Hosts>
+    <Host Name="Mailbox"/>
+  </Hosts>
+  
+  <Requirements>
+    <Sets>
+      <Set Name="Mailbox" MinVersion="1.1"/>
+    </Sets>
+  </Requirements>
   
   <!-- Permissions -->
   <Permissions>Restricted</Permissions>
@@ -30,16 +46,6 @@
     </Form>
   </FormSettings>
 
-  <Hosts>
-    <Host Name="Mailbox"/>
-  </Hosts>
-
-  <Requirements>
-    <Sets>
-      <Set Name="Mailbox" MinVersion="1.1"/>
-    </Sets>
-  </Requirements>
-
   <!-- Version Overrides for Ribbon Button -->
   <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
     <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
@@ -53,14 +59,10 @@
       <Hosts>
         <Host xsi:type="MailHost">
           
-          <!-- Event-based activation (optional, for background tasks) -->
-          <Runtimes>
-            <Runtime resid="WebViewRuntime.Url">
-              <Override type="javascript" resid="JSRuntime.Url"/>
-            </Runtime>
-          </Runtimes>
-
           <DesktopFormFactor>
+            <!-- CRITICAL: FunctionFile reference -->
+            <FunctionFile resid="Commands.Url"/>
+            
             <!-- Message Read Mode -->
             <ExtensionPoint xsi:type="MessageReadCommandSurface">
               <OfficeTab id="TabDefault">
@@ -73,6 +75,7 @@
                       <Description resid="ButtonTooltip"/>
                     </Supertip>
                     <Icon>
+                      <bt:Image size="16" resid="Icon.16x16"/>
                       <bt:Image size="32" resid="Icon.32x32"/>
                       <bt:Image size="80" resid="Icon.80x80"/>
                     </Icon>
@@ -96,6 +99,7 @@
                       <Description resid="ButtonTooltip"/>
                     </Supertip>
                     <Icon>
+                      <bt:Image size="16" resid="Icon.16x16"/>
                       <bt:Image size="32" resid="Icon.32x32"/>
                       <bt:Image size="80" resid="Icon.80x80"/>
                     </Icon>
@@ -112,19 +116,19 @@
 
       <Resources>
         <bt:Images>
+          <bt:Image id="Icon.16x16" DefaultValue="https://maritimepaintball.github.io/Submit-IT-Support-Outlook/Icon-16.png"/>
           <bt:Image id="Icon.32x32" DefaultValue="https://maritimepaintball.github.io/Submit-IT-Support-Outlook/Icon-32.png"/>
           <bt:Image id="Icon.80x80" DefaultValue="https://maritimepaintball.github.io/Submit-IT-Support-Outlook/Icon-80.png"/>
         </bt:Images>
         <bt:Urls>
-          <bt:Url id="WebViewRuntime.Url" DefaultValue="https://maritimepaintball.github.io/Submit-IT-Support-Outlook/commands.html"/>
-          <bt:Url id="JSRuntime.Url" DefaultValue="https://maritimepaintball.github.io/Submit-IT-Support-Outlook/commands.js"/>
+          <bt:Url id="Commands.Url" DefaultValue="https://maritimepaintball.github.io/Submit-IT-Support-Outlook/commands.html"/>
         </bt:Urls>
         <bt:ShortStrings>
-          <bt:String id="GroupLabel" DefaultValue="Forms"/>
-          <bt:String id="ButtonLabel" DefaultValue="Open Form"/>
+          <bt:String id="GroupLabel" DefaultValue="IT Support"/>
+          <bt:String id="ButtonLabel" DefaultValue="Submit Ticket"/>
         </bt:ShortStrings>
         <bt:LongStrings>
-          <bt:String id="ButtonTooltip" DefaultValue="Click to open the Microsoft Form"/>
+          <bt:String id="ButtonTooltip" DefaultValue="Click to open IT support form"/>
         </bt:LongStrings>
       </Resources>
     </VersionOverrides>
