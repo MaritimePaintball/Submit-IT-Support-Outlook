@@ -15,7 +15,7 @@
   <Description DefaultValue="Opens IT Support submission form"/>
   <IconUrl DefaultValue="https://maritimepaintball.github.io/Submit-IT-Support-Outlook/Icon-32.png"/>
   <HighResolutionIconUrl DefaultValue="https://maritimepaintball.github.io/Submit-IT-Support-Outlook/Icon-64.png"/>
-  <SupportUrl DefaultValue="https://maritimepaintball.github.io/Submit-IT-Support-Outlook/"/>
+  <SupportUrl DefaultValue="https://maritimepaintball.github.io/Submit-IT-Support-Outlook/Support.html"/>
   
   <!-- CRITICAL: AppDomains whitelist -->
   <AppDomains>
