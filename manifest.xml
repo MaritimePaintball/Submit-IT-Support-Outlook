@@ -1,38 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<OfficeApp 
-  xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" 
-  xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0" 
-  xsi:type="MailApp">
-  
-  <Id>1cc6f490-34ad-4931-ac57-8a4a685fdd63</Id>
-  <Version>1.0.1.0</Version>
-  <ProviderName>Maritime Paintball</ProviderName>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+           xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
+           xsi:type="MailApp">
+
+  <Id>9504b5ef-823c-4843-b622-1a2e46ac5b10</Id>
+  <Version>1.0.3</Version>
+  <ProviderName>IT Department</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="IT Support"/>
-  <Description DefaultValue="Submit IT Support Form"/>
+  <DisplayName DefaultValue="Submit IT Request"/>
+  <Description DefaultValue="Click to open the IT request form and submit a new support ticket."/>
+
   <IconUrl DefaultValue="https://maritimepaintball.github.io/Submit-IT-Support-Outlook/Icon-32.png"/>
   <HighResolutionIconUrl DefaultValue="https://maritimepaintball.github.io/Submit-IT-Support-Outlook/Icon-64.png"/>
-  <SupportUrl DefaultValue="https://maritimepaintball.github.io"/>
-  
+  <SupportUrl DefaultValue="https://maritimepaintball.github.io/Submit-IT-Support-Outlook/"/>
+
   <AppDomains>
-    <AppDomain>https://maritimepaintball.github.io</AppDomain>
+    <AppDomain>https://forms.microsoft.com</AppDomain>
     <AppDomain>https://forms.office.com</AppDomain>
+    <AppDomain>https://maritimepaintball.github.io</AppDomain>
   </AppDomains>
-  
+
   <Hosts>
     <Host Name="Mailbox"/>
   </Hosts>
-  
+
   <Requirements>
     <Sets>
       <Set Name="Mailbox" MinVersion="1.1"/>
     </Sets>
   </Requirements>
-  
-  <Permissions>Restricted</Permissions>
-  
+
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
@@ -41,7 +40,14 @@
       </DesktopSettings>
     </Form>
   </FormSettings>
-  
+
+  <Permissions>Restricted</Permissions>
+
+  <Rule xsi:type="RuleCollection" Mode="Or">
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read"/>
+  </Rule>
+
+  <!-- VersionOverrides: This creates the ribbon button -->
   <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
     <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
       
@@ -50,12 +56,13 @@
           <bt:Set Name="Mailbox"/>
         </bt:Sets>
       </Requirements>
-      
+
       <Hosts>
         <Host xsi:type="MailHost">
           <DesktopFormFactor>
             <FunctionFile resid="Commands.Url"/>
             
+            <!-- Button in Message Read mode -->
             <ExtensionPoint xsi:type="MessageReadCommandSurface">
               <OfficeTab id="TabDefault">
                 <Group id="msgReadGroup">
@@ -79,6 +86,7 @@
               </OfficeTab>
             </ExtensionPoint>
             
+            <!-- Button in Message Compose mode -->
             <ExtensionPoint xsi:type="MessageComposeCommandSurface">
               <OfficeTab id="TabDefault">
                 <Group id="msgComposeGroup">
@@ -104,7 +112,7 @@
           </DesktopFormFactor>
         </Host>
       </Hosts>
-      
+
       <Resources>
         <bt:Images>
           <bt:Image id="Icon.16x16" DefaultValue="https://maritimepaintball.github.io/Submit-IT-Support-Outlook/Icon-16.png"/>
@@ -116,12 +124,13 @@
         </bt:Urls>
         <bt:ShortStrings>
           <bt:String id="GroupLabel" DefaultValue="IT Support"/>
-          <bt:String id="ButtonLabel" DefaultValue="Submit Form"/>
+          <bt:String id="ButtonLabel" DefaultValue="Submit Request"/>
         </bt:ShortStrings>
         <bt:LongStrings>
-          <bt:String id="ButtonTooltip" DefaultValue="Open IT support form"/>
+          <bt:String id="ButtonTooltip" DefaultValue="Open IT support request form"/>
         </bt:LongStrings>
       </Resources>
     </VersionOverrides>
   </VersionOverrides>
+
 </OfficeApp>
