@@ -13,8 +13,8 @@
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Form Button"/>
   <Description DefaultValue="Opens Microsoft Form"/>
-  <IconUrl DefaultValue="https://maritimepaintball.github.io/Submit-IT-Support-Outlook/icon-32.png"/>
-  <HighResolutionIconUrl DefaultValue="https://maritimepaintball.github.io/Submit-IT-Support-Outlook/icon-64.png"/>
+  <IconUrl DefaultValue="https://maritimepaintball.github.io/Submit-IT-Support-Outlook/Icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://maritimepaintball.github.io/Submit-IT-Support-Outlook/Icon-64.png"/>
   <SupportUrl DefaultValue="https://maritimepaintball.github.io/support.html"/>
   
   <!-- Permissions -->
@@ -24,7 +24,7 @@
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://yourusername.github.io/outlook-addin/taskpane.html"/>
+        <SourceLocation DefaultValue="https://maritimepaintball.github.io/Submit-IT-Support-Outlook/taskpane.html"/>
         <RequestedHeight>250</RequestedHeight>
       </DesktopSettings>
     </Form>
@@ -73,7 +73,6 @@
                       <Description resid="ButtonTooltip"/>
                     </Supertip>
                     <Icon>
-                      <bt:Image size="16" resid="Icon.16x16"/>
                       <bt:Image size="32" resid="Icon.32x32"/>
                       <bt:Image size="80" resid="Icon.80x80"/>
                     </Icon>
@@ -97,7 +96,6 @@
                       <Description resid="ButtonTooltip"/>
                     </Supertip>
                     <Icon>
-                      <bt:Image size="16" resid="Icon.16x16"/>
                       <bt:Image size="32" resid="Icon.32x32"/>
                       <bt:Image size="80" resid="Icon.80x80"/>
                     </Icon>
@@ -114,13 +112,12 @@
 
       <Resources>
         <bt:Images>
-          <bt:Image id="Icon.16x16" DefaultValue="https://yourusername.github.io/outlook-addin/assets/icon-16.png"/>
-          <bt:Image id="Icon.32x32" DefaultValue="https://yourusername.github.io/outlook-addin/assets/icon-32.png"/>
-          <bt:Image id="Icon.80x80" DefaultValue="https://yourusername.github.io/outlook-addin/assets/icon-80.png"/>
+          <bt:Image id="Icon.32x32" DefaultValue="https://maritimepaintball.github.io/Submit-IT-Support-Outlook/Icon-32.png"/>
+          <bt:Image id="Icon.80x80" DefaultValue="https://maritimepaintball.github.io/Submit-IT-Support-Outlook/Icon-80.png"/>
         </bt:Images>
         <bt:Urls>
-          <bt:Url id="WebViewRuntime.Url" DefaultValue="https://yourusername.github.io/outlook-addin/commands.html"/>
-          <bt:Url id="JSRuntime.Url" DefaultValue="https://yourusername.github.io/outlook-addin/commands.js"/>
+          <bt:Url id="WebViewRuntime.Url" DefaultValue="https://maritimepaintball.github.io/Submit-IT-Support-Outlook/commands.html"/>
+          <bt:Url id="JSRuntime.Url" DefaultValue="https://maritimepaintball.github.io/Submit-IT-Support-Outlook/commands.js"/>
         </bt:Urls>
         <bt:ShortStrings>
           <bt:String id="GroupLabel" DefaultValue="Forms"/>
