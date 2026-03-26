@@ -1,23 +1,21 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<OfficeApp
-  xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
-  xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp 
+  xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" 
+  xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0" 
   xsi:type="MailApp">
-
-  <!-- Basic Settings -->
+  
   <Id>1cc6f490-34ad-4931-ac57-8a4a685fdd63</Id>
-  <Version>1.0.0.9</Version>
+  <Version>1.0.0.0</Version>
   <ProviderName>Maritime Paintball</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="IT Support Form"/>
-  <Description DefaultValue="Opens IT Support submission form"/>
+  <DisplayName DefaultValue="IT Support"/>
+  <Description DefaultValue="Submit IT Support Form"/>
   <IconUrl DefaultValue="https://maritimepaintball.github.io/Submit-IT-Support-Outlook/Icon-32.png"/>
   <HighResolutionIconUrl DefaultValue="https://maritimepaintball.github.io/Submit-IT-Support-Outlook/Icon-64.png"/>
-  <SupportUrl DefaultValue="https://maritimepaintball.github.io/Submit-IT-Support-Outlook/Support.html"/>
+  <SupportUrl DefaultValue="https://maritimepaintball.github.io"/>
   
-  <!-- CRITICAL: AppDomains whitelist -->
   <AppDomains>
     <AppDomain>https://maritimepaintball.github.io</AppDomain>
     <AppDomain>https://forms.office.com</AppDomain>
@@ -33,10 +31,8 @@
     </Sets>
   </Requirements>
   
-  <!-- Permissions -->
   <Permissions>Restricted</Permissions>
-
-  <!-- Form Settings -->
+  
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
@@ -45,8 +41,7 @@
       </DesktopSettings>
     </Form>
   </FormSettings>
-
-  <!-- Version Overrides for Ribbon Button -->
+  
   <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
     <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
       
@@ -55,20 +50,17 @@
           <bt:Set Name="Mailbox"/>
         </bt:Sets>
       </Requirements>
-
+      
       <Hosts>
         <Host xsi:type="MailHost">
-          
           <DesktopFormFactor>
-            <!-- CRITICAL: FunctionFile reference -->
             <FunctionFile resid="Commands.Url"/>
             
-            <!-- Message Read Mode -->
             <ExtensionPoint xsi:type="MessageReadCommandSurface">
               <OfficeTab id="TabDefault">
                 <Group id="msgReadGroup">
                   <Label resid="GroupLabel"/>
-                  <Control xsi:type="Button" id="msgReadOpenFormButton">
+                  <Control xsi:type="Button" id="msgReadButton">
                     <Label resid="ButtonLabel"/>
                     <Supertip>
                       <Title resid="ButtonLabel"/>
@@ -86,13 +78,12 @@
                 </Group>
               </OfficeTab>
             </ExtensionPoint>
-
-            <!-- Message Compose Mode -->
+            
             <ExtensionPoint xsi:type="MessageComposeCommandSurface">
               <OfficeTab id="TabDefault">
                 <Group id="msgComposeGroup">
                   <Label resid="GroupLabel"/>
-                  <Control xsi:type="Button" id="msgComposeOpenFormButton">
+                  <Control xsi:type="Button" id="msgComposeButton">
                     <Label resid="ButtonLabel"/>
                     <Supertip>
                       <Title resid="ButtonLabel"/>
@@ -113,7 +104,7 @@
           </DesktopFormFactor>
         </Host>
       </Hosts>
-
+      
       <Resources>
         <bt:Images>
           <bt:Image id="Icon.16x16" DefaultValue="https://maritimepaintball.github.io/Submit-IT-Support-Outlook/Icon-16.png"/>
@@ -125,10 +116,10 @@
         </bt:Urls>
         <bt:ShortStrings>
           <bt:String id="GroupLabel" DefaultValue="IT Support"/>
-          <bt:String id="ButtonLabel" DefaultValue="Submit Ticket"/>
+          <bt:String id="ButtonLabel" DefaultValue="Submit Form"/>
         </bt:ShortStrings>
         <bt:LongStrings>
-          <bt:String id="ButtonTooltip" DefaultValue="Click to open IT support form"/>
+          <bt:String id="ButtonTooltip" DefaultValue="Open IT support form"/>
         </bt:LongStrings>
       </Resources>
     </VersionOverrides>
