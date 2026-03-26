@@ -1,0 +1,12 @@
+# GitHub Pages Configuration
+# This ensures XML files are served with correct content-type
+
+include:
+  - manifest.xml
+  
+# Prevent GitHub from processing certain files
+keep_files:
+  - manifest.xml
+  - commands.js
+  - commands.html
+  - taskpane.html
